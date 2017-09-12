@@ -380,6 +380,38 @@ function captureCharge(chargeId, request, callback)
 
 
 
+### <a name="update_charge_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".ChargesController.updateChargeMetadata") updateChargeMetadata
+
+> Updates the metadata from a charge
+
+
+```javascript
+function updateChargeMetadata(chargeId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| chargeId |  ``` Required ```  | The charge id |
+| request |  ``` Required ```  | Request for updating the charge metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var chargeId = charge_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updateChargeMetadata(chargeId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="customers_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CustomersController") CustomersController
@@ -982,6 +1014,38 @@ function getAccessToken(customerId, tokenId, callback)
 
 
 
+### <a name="update_customer_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.updateCustomerMetadata") updateCustomerMetadata
+
+> Updates the metadata a customer
+
+
+```javascript
+function updateCustomerMetadata(customerId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | The customer id |
+| request |  ``` Required ```  | Request for updating the customer metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var customerId = customer_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updateCustomerMetadata(customerId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SubscriptionsController") SubscriptionsController
@@ -1466,6 +1530,38 @@ function deleteSubscriptionItem(subscriptionId, subscriptionItemId, callback)
 
 
 
+### <a name="update_subscription_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.updateSubscriptionMetadata") updateSubscriptionMetadata
+
+> Updates the metadata from a subscription
+
+
+```javascript
+function updateSubscriptionMetadata(subscriptionId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| request |  ``` Required ```  | Request for updating the subscrption metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var subscriptionId = subscription_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updateSubscriptionMetadata(subscriptionId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="plans_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PlansController") PlansController
@@ -1477,36 +1573,6 @@ The singleton instance of the ``` PlansController ``` class can be accessed from
 ```javascript
 var controller = lib.PlansController;
 ```
-
-### <a name="get_plan_items"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.getPlanItems") getPlanItems
-
-> Gets all items from a plan
-
-
-```javascript
-function getPlanItems(planId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-
-    controller.getPlanItems(planId, function(error, response, context) {
-
-    
-    });
-```
-
-
 
 ### <a name="update_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlanItem") updatePlanItem
 
@@ -1782,6 +1848,38 @@ function deletePlanItem(planId, planItemId, callback)
 
 
 
+### <a name="update_plan_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlanMetadata") updatePlanMetadata
+
+> Updates the metadata from a plan
+
+
+```javascript
+function updatePlanMetadata(planId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | The plan id |
+| request |  ``` Required ```  | Request for updating the plan metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updatePlanMetadata(planId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="invoices_controller"></a>![Class: ](https://apidocs.io/img/class.png ".InvoicesController") InvoicesController
@@ -1906,6 +2004,38 @@ function getInvoice(invoiceId, callback)
 
 
 
+### <a name="update_invoice_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.updateInvoiceMetadata") updateInvoiceMetadata
+
+> Updates the metadata from an invoice
+
+
+```javascript
+function updateInvoiceMetadata(invoiceId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| invoiceId |  ``` Required ```  | The invoice id |
+| request |  ``` Required ```  | Request for updating the invoice metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var invoiceId = invoice_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updateInvoiceMetadata(invoiceId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="orders_controller"></a>![Class: ](https://apidocs.io/img/class.png ".OrdersController") OrdersController
@@ -1993,6 +2123,38 @@ function createOrder(body, callback)
     var body = new CreateOrderRequest({"key":"value"});
 
     controller.createOrder(body, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_order_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".OrdersController.updateOrderMetadata") updateOrderMetadata
+
+> Updates the metadata from an order
+
+
+```javascript
+function updateOrderMetadata(orderId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| orderId |  ``` Required ```  | The order id |
+| request |  ``` Required ```  | Request for updating the order metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var orderId = order_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updateOrderMetadata(orderId, request, function(error, response, context) {
 
     
     });
