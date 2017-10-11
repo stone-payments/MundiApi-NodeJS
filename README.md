@@ -124,9 +124,9 @@ lib.Configuration.basicAuthPassword = "basicAuthPassword"; // The password to us
 
 * [ChargesController](#charges_controller)
 * [CustomersController](#customers_controller)
-* [SubscriptionsController](#subscriptions_controller)
-* [PlansController](#plans_controller)
 * [InvoicesController](#invoices_controller)
+* [PlansController](#plans_controller)
+* [SubscriptionsController](#subscriptions_controller)
 * [OrdersController](#orders_controller)
 * [TokensController](#tokens_controller)
 
@@ -193,28 +193,6 @@ function retryCharge(chargeId, callback)
     var chargeId = charge_id;
 
     controller.retryCharge(chargeId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_charges"></a>![Method: ](https://apidocs.io/img/method.png ".ChargesController.getCharges") getCharges
-
-> Lists all charges
-
-
-```javascript
-function getCharges(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getCharges(function(error, response, context) {
 
     
     });
@@ -412,6 +390,52 @@ function updateChargeMetadata(chargeId, request, callback)
 
 
 
+### <a name="get_charges"></a>![Method: ](https://apidocs.io/img/method.png ".ChargesController.getCharges") getCharges
+
+> Lists all charges
+
+
+```javascript
+function getCharges(page, size, code, status, paymentMethod, customerId, orderId, createdSince, createdUntil, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| code |  ``` Optional ```  | Filter for charge's code |
+| status |  ``` Optional ```  | Filter for charge's status |
+| paymentMethod |  ``` Optional ```  | Filter for charge's payment method |
+| customerId |  ``` Optional ```  | Filter for charge's customer id |
+| orderId |  ``` Optional ```  | Filter for charge's order id |
+| createdSince |  ``` Optional ```  | Filter for the beginning of the range for charge's creation |
+| createdUntil |  ``` Optional ```  | Filter for the end of the range for charge's creation |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 251;
+    var size = 251;
+    var code = 'code';
+    var status = 'status';
+    var paymentMethod = payment_method;
+    var customerId = customer_id;
+    var orderId = order_id;
+    var createdSince = date("D M d, Y G:i");
+    var createdUntil = date("D M d, Y G:i");
+
+    controller.getCharges(page, size, code, status, paymentMethod, customerId, orderId, createdSince, createdUntil, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="customers_controller"></a>![Class: ](https://apidocs.io/img/class.png ".CustomersController") CustomersController
@@ -423,88 +447,6 @@ The singleton instance of the ``` CustomersController ``` class can be accessed 
 ```javascript
 var controller = lib.CustomersController;
 ```
-
-### <a name="get_addresses"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getAddresses") getAddresses
-
-> Gets all adressess from a customer
-
-
-```javascript
-function getAddresses(customerId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| customerId |  ``` Required ```  | Customer id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var customerId = customer_id;
-
-    controller.getAddresses(customerId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_cards"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getCards") getCards
-
-> Get all cards from a customer
-
-
-```javascript
-function getCards(customerId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| customerId |  ``` Required ```  | Customer Id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var customerId = customer_id;
-
-    controller.getCards(customerId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_customers"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getCustomers") getCustomers
-
-> Get all Customers
-
-
-```javascript
-function getCustomers(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getCustomers(function(error, response, context) {
-
-    
-    });
-```
-
-
 
 ### <a name="create_customer"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.createCustomer") createCustomer
 
@@ -566,40 +508,6 @@ function getCustomer(customerId, callback)
 
 
 
-### <a name="update_address"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.updateAddress") updateAddress
-
-> Updates an address
-
-
-```javascript
-function updateAddress(customerId, addressId, request, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| customerId |  ``` Required ```  | Customer Id |
-| addressId |  ``` Required ```  | Address Id |
-| request |  ``` Required ```  | Request for updating an address |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var customerId = customer_id;
-    var addressId = address_id;
-    var request = new UpdateAddressRequest({"key":"value"});
-
-    controller.updateAddress(customerId, addressId, request, function(error, response, context) {
-
-    
-    });
-```
-
-
-
 ### <a name="update_card"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.updateCard") updateCard
 
 > Updates a card
@@ -627,6 +535,40 @@ function updateCard(customerId, cardId, request, callback)
     var request = new UpdateCardRequest({"key":"value"});
 
     controller.updateCard(customerId, cardId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_address"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.updateAddress") updateAddress
+
+> Updates an address
+
+
+```javascript
+function updateAddress(customerId, addressId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| addressId |  ``` Required ```  | Address Id |
+| request |  ``` Required ```  | Request for updating an address |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var customerId = customer_id;
+    var addressId = address_id;
+    var request = new UpdateAddressRequest({"key":"value"});
+
+    controller.updateAddress(customerId, addressId, request, function(error, response, context) {
 
     
     });
@@ -888,19 +830,23 @@ function deleteAccessTokens(customerId, callback)
 
 
 
-### <a name="get_access_tokens"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getAccessTokens") getAccessTokens
+### <a name="get_customers"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getCustomers") getCustomers
 
-> Get all access tokens from a customer
+> Get all Customers
 
 
 ```javascript
-function getAccessTokens(customerId, callback)
+function getCustomers(name, document, page, size, email, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| customerId |  ``` Required ```  | Customer Id |
+| name |  ``` Optional ```  | Name of the Customer |
+| document |  ``` Optional ```  | Document of the Customer |
+| page |  ``` Optional ```  ``` DefaultValue ```  | Current page the the search |
+| size |  ``` Optional ```  ``` DefaultValue ```  | Quantity pages of the search |
+| email |  ``` Optional ```  | Customer's email |
 
 
 
@@ -908,73 +854,13 @@ function getAccessTokens(customerId, callback)
 
 ```javascript
 
-    var customerId = customer_id;
+    var name = 'name';
+    var document = 'document';
+    var page = 251;
+    var size = 251;
+    var email = 'email';
 
-    controller.getAccessTokens(customerId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_access_token"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.deleteAccessToken") deleteAccessToken
-
-> Delete a customer's access token
-
-
-```javascript
-function deleteAccessToken(customerId, tokenId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| customerId |  ``` Required ```  | Customer Id |
-| tokenId |  ``` Required ```  | Token Id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var customerId = customer_id;
-    var tokenId = token_id;
-
-    controller.deleteAccessToken(customerId, tokenId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_access_token"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.createAccessToken") createAccessToken
-
-> Creates a access token for a customer
-
-
-```javascript
-function createAccessToken(customerId, request, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| customerId |  ``` Required ```  | Customer Id |
-| request |  ``` Required ```  | Request for creating a access token |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var customerId = customer_id;
-    var request = new CreateAccessTokenRequest({"key":"value"});
-
-    controller.createAccessToken(customerId, request, function(error, response, context) {
+    controller.getCustomers(name, document, page, size, email, function(error, response, context) {
 
     
     });
@@ -1014,6 +900,70 @@ function getAccessToken(customerId, tokenId, callback)
 
 
 
+### <a name="create_access_token"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.createAccessToken") createAccessToken
+
+> Creates a access token for a customer
+
+
+```javascript
+function createAccessToken(customerId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| request |  ``` Required ```  | Request for creating a access token |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var customerId = customer_id;
+    var request = new CreateAccessTokenRequest({"key":"value"});
+
+    controller.createAccessToken(customerId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="delete_access_token"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.deleteAccessToken") deleteAccessToken
+
+> Delete a customer's access token
+
+
+```javascript
+function deleteAccessToken(customerId, tokenId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| tokenId |  ``` Required ```  | Token Id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var customerId = customer_id;
+    var tokenId = token_id;
+
+    controller.deleteAccessToken(customerId, tokenId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 ### <a name="update_customer_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.updateCustomerMetadata") updateCustomerMetadata
 
 > Updates the metadata a customer
@@ -1046,6 +996,598 @@ function updateCustomerMetadata(customerId, request, callback)
 
 
 
+### <a name="get_access_tokens"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getAccessTokens") getAccessTokens
+
+> Get all access tokens from a customer
+
+
+```javascript
+function getAccessTokens(customerId, page, size, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var customerId = customer_id;
+    var page = 251;
+    var size = 251;
+
+    controller.getAccessTokens(customerId, page, size, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_addresses"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getAddresses") getAddresses
+
+> Gets all adressess from a customer
+
+
+```javascript
+function getAddresses(customerId, page, size, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var customerId = customer_id;
+    var page = 251;
+    var size = 251;
+
+    controller.getAddresses(customerId, page, size, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_cards"></a>![Method: ](https://apidocs.io/img/method.png ".CustomersController.getCards") getCards
+
+> Get all cards from a customer
+
+
+```javascript
+function getCards(customerId, page, size, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| customerId |  ``` Required ```  | Customer Id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var customerId = customer_id;
+    var page = 251;
+    var size = 251;
+
+    controller.getCards(customerId, page, size, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="invoices_controller"></a>![Class: ](https://apidocs.io/img/class.png ".InvoicesController") InvoicesController
+
+### Get singleton instance
+
+The singleton instance of the ``` InvoicesController ``` class can be accessed from the API Client.
+
+```javascript
+var controller = lib.InvoicesController;
+```
+
+### <a name="get_invoice"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.getInvoice") getInvoice
+
+> Gets an invoice
+
+
+```javascript
+function getInvoice(invoiceId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| invoiceId |  ``` Required ```  | Invoice Id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var invoiceId = invoice_id;
+
+    controller.getInvoice(invoiceId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="cancel_invoice"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.cancelInvoice") cancelInvoice
+
+> Cancels an invoice
+
+
+```javascript
+function cancelInvoice(invoiceId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| invoiceId |  ``` Required ```  | Invoice id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var invoiceId = invoice_id;
+
+    controller.cancelInvoice(invoiceId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_invoice_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.updateInvoiceMetadata") updateInvoiceMetadata
+
+> Updates the metadata from an invoice
+
+
+```javascript
+function updateInvoiceMetadata(invoiceId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| invoiceId |  ``` Required ```  | The invoice id |
+| request |  ``` Required ```  | Request for updating the invoice metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var invoiceId = invoice_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updateInvoiceMetadata(invoiceId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_invoices"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.getInvoices") getInvoices
+
+> Gets all invoices
+
+
+```javascript
+function getInvoices(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| code |  ``` Optional ```  | Filter for Invoice's code |
+| customerId |  ``` Optional ```  | Filter for Invoice's customer id |
+| subscriptionId |  ``` Optional ```  | Filter for Invoice's subscription id |
+| createdSince |  ``` Optional ```  | Filter for Invoice's creation date start range |
+| createdUntil |  ``` Optional ```  | Filter for Invoices creation date end range |
+| status |  ``` Optional ```  | Filter for Invoice's status |
+| dueSince |  ``` Optional ```  | Filter for Invoice's due date start range |
+| dueUntil |  ``` Optional ```  | Filter for Invoice's due date end range |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 251;
+    var size = 251;
+    var code = 'code';
+    var customerId = customer_id;
+    var subscriptionId = subscription_id;
+    var createdSince = date("D M d, Y G:i");
+    var createdUntil = date("D M d, Y G:i");
+    var status = 'status';
+    var dueSince = date("D M d, Y G:i");
+    var dueUntil = date("D M d, Y G:i");
+
+    controller.getInvoices(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="plans_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PlansController") PlansController
+
+### Get singleton instance
+
+The singleton instance of the ``` PlansController ``` class can be accessed from the API Client.
+
+```javascript
+var controller = lib.PlansController;
+```
+
+### <a name="update_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlanItem") updatePlanItem
+
+> Updates a plan item
+
+
+```javascript
+function updatePlanItem(planId, planItemId, body, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | Plan id |
+| planItemId |  ``` Required ```  | Plan item id |
+| body |  ``` Required ```  | Request for updating the plan item |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+    var planItemId = plan_item_id;
+    var body = new UpdatePlanItemRequest({"key":"value"});
+
+    controller.updatePlanItem(planId, planItemId, body, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.getPlan") getPlan
+
+> Gets a plan
+
+
+```javascript
+function getPlan(planId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | Plan id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+
+    controller.getPlan(planId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.createPlanItem") createPlanItem
+
+> Adds a new item to a plan
+
+
+```javascript
+function createPlanItem(planId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | Plan id |
+| request |  ``` Required ```  | Request for creating a plan item |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+    var request = new CreatePlanItemRequest({"key":"value"});
+
+    controller.createPlanItem(planId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlan") updatePlan
+
+> Updates a plan
+
+
+```javascript
+function updatePlan(planId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | Plan id |
+| request |  ``` Required ```  | Request for updating a plan |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+    var request = new UpdatePlanRequest({"key":"value"});
+
+    controller.updatePlan(planId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.createPlan") createPlan
+
+> Creates a new plan
+
+
+```javascript
+function createPlan(body, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| body |  ``` Required ```  | Request for creating a plan |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var body = new CreatePlanRequest({"key":"value"});
+
+    controller.createPlan(body, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="delete_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.deletePlan") deletePlan
+
+> Deletes a plan
+
+
+```javascript
+function deletePlan(planId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | Plan id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+
+    controller.deletePlan(planId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.getPlanItem") getPlanItem
+
+> Gets a plan item
+
+
+```javascript
+function getPlanItem(planId, planItemId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | Plan id |
+| planItemId |  ``` Required ```  | Plan item id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+    var planItemId = plan_item_id;
+
+    controller.getPlanItem(planId, planItemId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="delete_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.deletePlanItem") deletePlanItem
+
+> Removes an item from a plan
+
+
+```javascript
+function deletePlanItem(planId, planItemId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | Plan id |
+| planItemId |  ``` Required ```  | Plan item id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+    var planItemId = plan_item_id;
+
+    controller.deletePlanItem(planId, planItemId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_plan_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlanMetadata") updatePlanMetadata
+
+> Updates the metadata from a plan
+
+
+```javascript
+function updatePlanMetadata(planId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| planId |  ``` Required ```  | The plan id |
+| request |  ``` Required ```  | Request for updating the plan metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var planId = plan_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updatePlanMetadata(planId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_plans"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.getPlans") getPlans
+
+> Gets all plans
+
+
+```javascript
+function getPlans(page, size, name, status, billingType, createdSince, createdUntil, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| name |  ``` Optional ```  | Filter for Plan's name |
+| status |  ``` Optional ```  | Filter for Plan's status |
+| billingType |  ``` Optional ```  | Filter for plan's billing type |
+| createdSince |  ``` Optional ```  | Filter for plan's creation date start range |
+| createdUntil |  ``` Optional ```  | Filter for plan's creation date end range |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 251;
+    var size = 251;
+    var name = 'name';
+    var status = 'status';
+    var billingType = billing_type;
+    var createdSince = date("D M d, Y G:i");
+    var createdUntil = date("D M d, Y G:i");
+
+    controller.getPlans(page, size, name, status, billingType, createdSince, createdUntil, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 [Back to List of Controllers](#list_of_controllers)
 
 ## <a name="subscriptions_controller"></a>![Class: ](https://apidocs.io/img/class.png ".SubscriptionsController") SubscriptionsController
@@ -1058,20 +1600,21 @@ The singleton instance of the ``` SubscriptionsController ``` class can be acces
 var controller = lib.SubscriptionsController;
 ```
 
-### <a name="update_subscription_billing_date"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.updateSubscriptionBillingDate") updateSubscriptionBillingDate
+### <a name="update_subscription_item"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.updateSubscriptionItem") updateSubscriptionItem
 
-> Updates the billing date from a subscription
+> Updates a subscription item
 
 
 ```javascript
-function updateSubscriptionBillingDate(subscriptionId, request, callback)
+function updateSubscriptionItem(subscriptionId, itemId, body, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| request |  ``` Required ```  | Request for updating the subscription billing date |
+| subscriptionId |  ``` Required ```  | Subscription Id |
+| itemId |  ``` Required ```  | Item id |
+| body |  ``` Required ```  | Request for updating a subscription item |
 
 
 
@@ -1080,9 +1623,10 @@ function updateSubscriptionBillingDate(subscriptionId, request, callback)
 ```javascript
 
     var subscriptionId = subscription_id;
-    var request = new UpdateSubscriptionBillingDateRequest({"key":"value"});
+    var itemId = item_id;
+    var body = new UpdateSubscriptionItemRequest({"key":"value"});
 
-    controller.updateSubscriptionBillingDate(subscriptionId, request, function(error, response, context) {
+    controller.updateSubscriptionItem(subscriptionId, itemId, body, function(error, response, context) {
 
     
     });
@@ -1124,21 +1668,20 @@ function createUsage(subscriptionId, itemId, body, callback)
 
 
 
-### <a name="update_subscription_item"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.updateSubscriptionItem") updateSubscriptionItem
+### <a name="update_subscription_billing_date"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.updateSubscriptionBillingDate") updateSubscriptionBillingDate
 
-> Updates a subscription item
+> Updates the billing date from a subscription
 
 
 ```javascript
-function updateSubscriptionItem(subscriptionId, itemId, body, callback)
+function updateSubscriptionBillingDate(subscriptionId, request, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | Subscription Id |
-| itemId |  ``` Required ```  | Item id |
-| body |  ``` Required ```  | Request for updating a subscription item |
+| subscriptionId |  ``` Required ```  | The subscription id |
+| request |  ``` Required ```  | Request for updating the subscription billing date |
 
 
 
@@ -1147,32 +1690,9 @@ function updateSubscriptionItem(subscriptionId, itemId, body, callback)
 ```javascript
 
     var subscriptionId = subscription_id;
-    var itemId = item_id;
-    var body = new UpdateSubscriptionItemRequest({"key":"value"});
+    var request = new UpdateSubscriptionBillingDateRequest({"key":"value"});
 
-    controller.updateSubscriptionItem(subscriptionId, itemId, body, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_subscriptions"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.getSubscriptions") getSubscriptions
-
-> Gets all subscriptions
-
-
-```javascript
-function getSubscriptions(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getSubscriptions(function(error, response, context) {
+    controller.updateSubscriptionBillingDate(subscriptionId, request, function(error, response, context) {
 
     
     });
@@ -1368,72 +1888,6 @@ function updateSubscriptionPaymentMethod(subscriptionId, request, callback)
 
 
 
-### <a name="get_usages"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.getUsages") getUsages
-
-> Lists all usages from a subscription item
-
-
-```javascript
-function getUsages(subscriptionId, itemId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| itemId |  ``` Required ```  | The subscription item id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var subscriptionId = subscription_id;
-    var itemId = item_id;
-
-    controller.getUsages(subscriptionId, itemId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_usage"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.deleteUsage") deleteUsage
-
-> Deletes a usage
-
-
-```javascript
-function deleteUsage(subscriptionId, itemId, usageId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| subscriptionId |  ``` Required ```  | The subscription id |
-| itemId |  ``` Required ```  | The subscription item id |
-| usageId |  ``` Required ```  | The usage id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var subscriptionId = subscription_id;
-    var itemId = item_id;
-    var usageId = usage_id;
-
-    controller.deleteUsage(subscriptionId, itemId, usageId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
 ### <a name="delete_discount"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.deleteDiscount") deleteDiscount
 
 > Deletes a discount
@@ -1530,6 +1984,76 @@ function deleteSubscriptionItem(subscriptionId, subscriptionItemId, callback)
 
 
 
+### <a name="delete_usage"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.deleteUsage") deleteUsage
+
+> Deletes a usage
+
+
+```javascript
+function deleteUsage(subscriptionId, itemId, usageId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| itemId |  ``` Required ```  | The subscription item id |
+| usageId |  ``` Required ```  | The usage id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var subscriptionId = subscription_id;
+    var itemId = item_id;
+    var usageId = usage_id;
+
+    controller.deleteUsage(subscriptionId, itemId, usageId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_usages"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.getUsages") getUsages
+
+> Lists all usages from a subscription item
+
+
+```javascript
+function getUsages(subscriptionId, itemId, page, size, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | The subscription id |
+| itemId |  ``` Required ```  | The subscription item id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var subscriptionId = subscription_id;
+    var itemId = item_id;
+    var page = 251;
+    var size = 251;
+
+    controller.getUsages(subscriptionId, itemId, page, size, function(error, response, context) {
+
+    
+    });
+```
+
+
+
 ### <a name="update_subscription_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.updateSubscriptionMetadata") updateSubscriptionMetadata
 
 > Updates the metadata from a subscription
@@ -1562,33 +2086,30 @@ function updateSubscriptionMetadata(subscriptionId, request, callback)
 
 
 
-[Back to List of Controllers](#list_of_controllers)
+### <a name="get_subscriptions"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.getSubscriptions") getSubscriptions
 
-## <a name="plans_controller"></a>![Class: ](https://apidocs.io/img/class.png ".PlansController") PlansController
-
-### Get singleton instance
-
-The singleton instance of the ``` PlansController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.PlansController;
-```
-
-### <a name="update_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlanItem") updatePlanItem
-
-> Updates a plan item
+> Gets all subscriptions
 
 
 ```javascript
-function updatePlanItem(planId, planItemId, body, callback)
+function getSubscriptions(page, size, code, billingType, customerId, planId, cardId, status, nextBillingSince, nextBillingUntil, createdSince, createdUntil, callback)
 ```
 #### Parameters
 
 | Parameter | Tags | Description |
 |-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-| planItemId |  ``` Required ```  | Plan item id |
-| body |  ``` Required ```  | Request for updating the plan item |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| code |  ``` Optional ```  | Filter for subscription's code |
+| billingType |  ``` Optional ```  | Filter for subscription's billing type |
+| customerId |  ``` Optional ```  | Filter for subscription's customer id |
+| planId |  ``` Optional ```  | Filter for subscription's plan id |
+| cardId |  ``` Optional ```  | Filter for subscription's card id |
+| status |  ``` Optional ```  | Filter for subscription's status |
+| nextBillingSince |  ``` Optional ```  | Filter for subscription's next billing date start range |
+| nextBillingUntil |  ``` Optional ```  | Filter for subscription's next billing date end range |
+| createdSince |  ``` Optional ```  | Filter for subscription's creation date start range |
+| createdUntil |  ``` Optional ```  | Filter for subscriptions creation date end range |
 
 
 
@@ -1596,439 +2117,20 @@ function updatePlanItem(planId, planItemId, body, callback)
 
 ```javascript
 
+    var page = 251;
+    var size = 251;
+    var code = 'code';
+    var billingType = billing_type;
+    var customerId = customer_id;
     var planId = plan_id;
-    var planItemId = plan_item_id;
-    var body = new UpdatePlanItemRequest({"key":"value"});
-
-    controller.updatePlanItem(planId, planItemId, body, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.getPlan") getPlan
-
-> Gets a plan
-
-
-```javascript
-function getPlan(planId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-
-    controller.getPlan(planId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.createPlanItem") createPlanItem
-
-> Adds a new item to a plan
-
-
-```javascript
-function createPlanItem(planId, request, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-| request |  ``` Required ```  | Request for creating a plan item |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-    var request = new CreatePlanItemRequest({"key":"value"});
-
-    controller.createPlanItem(planId, request, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlan") updatePlan
-
-> Updates a plan
-
-
-```javascript
-function updatePlan(planId, request, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-| request |  ``` Required ```  | Request for updating a plan |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-    var request = new UpdatePlanRequest({"key":"value"});
-
-    controller.updatePlan(planId, request, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="create_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.createPlan") createPlan
-
-> Creates a new plan
-
-
-```javascript
-function createPlan(body, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| body |  ``` Required ```  | Request for creating a plan |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var body = new CreatePlanRequest({"key":"value"});
-
-    controller.createPlan(body, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_plans"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.getPlans") getPlans
-
-> Gets all plans
-
-
-```javascript
-function getPlans(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getPlans(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_plan"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.deletePlan") deletePlan
-
-> Deletes a plan
-
-
-```javascript
-function deletePlan(planId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-
-    controller.deletePlan(planId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.getPlanItem") getPlanItem
-
-> Gets a plan item
-
-
-```javascript
-function getPlanItem(planId, planItemId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-| planItemId |  ``` Required ```  | Plan item id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-    var planItemId = plan_item_id;
-
-    controller.getPlanItem(planId, planItemId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="delete_plan_item"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.deletePlanItem") deletePlanItem
-
-> Removes an item from a plan
-
-
-```javascript
-function deletePlanItem(planId, planItemId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | Plan id |
-| planItemId |  ``` Required ```  | Plan item id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-    var planItemId = plan_item_id;
-
-    controller.deletePlanItem(planId, planItemId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_plan_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".PlansController.updatePlanMetadata") updatePlanMetadata
-
-> Updates the metadata from a plan
-
-
-```javascript
-function updatePlanMetadata(planId, request, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| planId |  ``` Required ```  | The plan id |
-| request |  ``` Required ```  | Request for updating the plan metadata |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var planId = plan_id;
-    var request = new UpdateMetadataRequest({"key":"value"});
-
-    controller.updatePlanMetadata(planId, request, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-[Back to List of Controllers](#list_of_controllers)
-
-## <a name="invoices_controller"></a>![Class: ](https://apidocs.io/img/class.png ".InvoicesController") InvoicesController
-
-### Get singleton instance
-
-The singleton instance of the ``` InvoicesController ``` class can be accessed from the API Client.
-
-```javascript
-var controller = lib.InvoicesController;
-```
-
-### <a name="cancel_invoice"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.cancelInvoice") cancelInvoice
-
-> Cancels an invoice
-
-
-```javascript
-function cancelInvoice(invoiceId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| invoiceId |  ``` Required ```  | Invoice id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var invoiceId = invoice_id;
-
-    controller.cancelInvoice(invoiceId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_last_invoice_charge"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.getLastInvoiceCharge") getLastInvoiceCharge
-
-> Gets the last charge from an invoice
-
-
-```javascript
-function getLastInvoiceCharge(invoiceId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| invoiceId |  ``` Required ```  | Invoice id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var invoiceId = invoice_id;
-
-    controller.getLastInvoiceCharge(invoiceId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_invoices"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.getInvoices") getInvoices
-
-> Gets all invoices
-
-
-```javascript
-function getInvoices(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getInvoices(function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_invoice"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.getInvoice") getInvoice
-
-> Gets an invoice
-
-
-```javascript
-function getInvoice(invoiceId, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| invoiceId |  ``` Required ```  | Invoice Id |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var invoiceId = invoice_id;
-
-    controller.getInvoice(invoiceId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="update_invoice_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.updateInvoiceMetadata") updateInvoiceMetadata
-
-> Updates the metadata from an invoice
-
-
-```javascript
-function updateInvoiceMetadata(invoiceId, request, callback)
-```
-#### Parameters
-
-| Parameter | Tags | Description |
-|-----------|------|-------------|
-| invoiceId |  ``` Required ```  | The invoice id |
-| request |  ``` Required ```  | Request for updating the invoice metadata |
-
-
-
-#### Example Usage
-
-```javascript
-
-    var invoiceId = invoice_id;
-    var request = new UpdateMetadataRequest({"key":"value"});
-
-    controller.updateInvoiceMetadata(invoiceId, request, function(error, response, context) {
+    var cardId = card_id;
+    var status = 'status';
+    var nextBillingSince = date("D M d, Y G:i");
+    var nextBillingUntil = date("D M d, Y G:i");
+    var createdSince = date("D M d, Y G:i");
+    var createdUntil = date("D M d, Y G:i");
+
+    controller.getSubscriptions(page, size, code, billingType, customerId, planId, cardId, status, nextBillingSince, nextBillingUntil, createdSince, createdUntil, function(error, response, context) {
 
     
     });
@@ -2071,28 +2173,6 @@ function getOrder(orderId, callback)
     var orderId = order_id;
 
     controller.getOrder(orderId, function(error, response, context) {
-
-    
-    });
-```
-
-
-
-### <a name="get_orders"></a>![Method: ](https://apidocs.io/img/method.png ".OrdersController.getOrders") getOrders
-
-> Gets all orders
-
-
-```javascript
-function getOrders(callback)
-```
-
-#### Example Usage
-
-```javascript
-
-
-    controller.getOrders(function(error, response, context) {
 
     
     });
@@ -2155,6 +2235,48 @@ function updateOrderMetadata(orderId, request, callback)
     var request = new UpdateMetadataRequest({"key":"value"});
 
     controller.updateOrderMetadata(orderId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_orders"></a>![Method: ](https://apidocs.io/img/method.png ".OrdersController.getOrders") getOrders
+
+> Gets all orders
+
+
+```javascript
+function getOrders(page, size, code, status, createdSince, createdUntil, customerId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| code |  ``` Optional ```  | Filter for order's code |
+| status |  ``` Optional ```  | Filter for order's status |
+| createdSince |  ``` Optional ```  | Filter for order's creation date start range |
+| createdUntil |  ``` Optional ```  | Filter for order's creation date end range |
+| customerId |  ``` Optional ```  | Filter for order's customer id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 87;
+    var size = 87;
+    var code = 'code';
+    var status = 'status';
+    var createdSince = date("D M d, Y G:i");
+    var createdUntil = date("D M d, Y G:i");
+    var customerId = customer_id;
+
+    controller.getOrders(page, size, code, status, createdSince, createdUntil, customerId, function(error, response, context) {
 
     
     });
