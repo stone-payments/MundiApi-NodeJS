@@ -129,6 +129,7 @@ lib.Configuration.basicAuthPassword = "basicAuthPassword"; // The password to us
 * [SubscriptionsController](#subscriptions_controller)
 * [OrdersController](#orders_controller)
 * [TokensController](#tokens_controller)
+* [RecipientsController](#recipients_controller)
 
 ## <a name="charges_controller"></a>![Class: ](https://apidocs.io/img/class.png ".ChargesController") ChargesController
 
@@ -418,8 +419,8 @@ function getCharges(page, size, code, status, paymentMethod, customerId, orderId
 
 ```javascript
 
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
     var code = 'code';
     var status = 'status';
     var paymentMethod = payment_method;
@@ -856,8 +857,8 @@ function getCustomers(name, document, page, size, email, callback)
 
     var name = 'name';
     var document = 'document';
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
     var email = 'email';
 
     controller.getCustomers(name, document, page, size, email, function(error, response, context) {
@@ -1019,8 +1020,8 @@ function getAccessTokens(customerId, page, size, callback)
 ```javascript
 
     var customerId = customer_id;
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
 
     controller.getAccessTokens(customerId, page, size, function(error, response, context) {
 
@@ -1053,8 +1054,8 @@ function getAddresses(customerId, page, size, callback)
 ```javascript
 
     var customerId = customer_id;
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
 
     controller.getAddresses(customerId, page, size, function(error, response, context) {
 
@@ -1087,8 +1088,8 @@ function getCards(customerId, page, size, callback)
 ```javascript
 
     var customerId = customer_id;
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
 
     controller.getCards(customerId, page, size, function(error, response, context) {
 
@@ -1231,8 +1232,8 @@ function getInvoices(page, size, code, customerId, subscriptionId, createdSince,
 
 ```javascript
 
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
     var code = 'code';
     var customerId = customer_id;
     var subscriptionId = subscription_id;
@@ -1572,8 +1573,8 @@ function getPlans(page, size, name, status, billingType, createdSince, createdUn
 
 ```javascript
 
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
     var name = 'name';
     var status = 'status';
     var billingType = billing_type;
@@ -2043,8 +2044,8 @@ function getUsages(subscriptionId, itemId, page, size, callback)
 
     var subscriptionId = subscription_id;
     var itemId = item_id;
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
 
     controller.getUsages(subscriptionId, itemId, page, size, function(error, response, context) {
 
@@ -2117,8 +2118,8 @@ function getSubscriptions(page, size, code, billingType, customerId, planId, car
 
 ```javascript
 
-    var page = 251;
-    var size = 251;
+    var page = 73;
+    var size = 73;
     var code = 'code';
     var billingType = billing_type;
     var customerId = customer_id;
@@ -2268,8 +2269,8 @@ function getOrders(page, size, code, status, createdSince, createdUntil, custome
 
 ```javascript
 
-    var page = 87;
-    var size = 87;
+    var page = 73;
+    var size = 73;
     var code = 'code';
     var status = 'status';
     var createdSince = date("D M d, Y G:i");
@@ -2357,6 +2358,484 @@ function createToken(publicKey, request, callback)
     var request = new CreateTokenRequest({"key":"value"});
 
     controller.createToken(publicKey, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+[Back to List of Controllers](#list_of_controllers)
+
+## <a name="recipients_controller"></a>![Class: ](https://apidocs.io/img/class.png ".RecipientsController") RecipientsController
+
+### Get singleton instance
+
+The singleton instance of the ``` RecipientsController ``` class can be accessed from the API Client.
+
+```javascript
+var controller = lib.RecipientsController;
+```
+
+### <a name="create_recipient"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.createRecipient") createRecipient
+
+> Creates a new recipient
+
+
+```javascript
+function createRecipient(request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| request |  ``` Required ```  | Recipient data |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var request = new CreateRecipientRequest({"key":"value"});
+
+    controller.createRecipient(request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_recipient"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.updateRecipient") updateRecipient
+
+> Updates a recipient
+
+
+```javascript
+function updateRecipient(recipientId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Recipient data |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var request = new UpdateRecipientRequest({"key":"value"});
+
+    controller.updateRecipient(recipientId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_recipient_default_bank_account"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.updateRecipientDefaultBankAccount") updateRecipientDefaultBankAccount
+
+> Updates the default bank account from a recipient
+
+
+```javascript
+function updateRecipientDefaultBankAccount(recipientId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Bank account data |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var request = new UpdateRecipientBankAccountRequest({"key":"value"});
+
+    controller.updateRecipientDefaultBankAccount(recipientId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_recipient"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getRecipient") getRecipient
+
+> Retrieves recipient information
+
+
+```javascript
+function getRecipient(recipientId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipiend id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+
+    controller.getRecipient(recipientId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_recipients"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getRecipients") getRecipients
+
+> Retrieves paginated recipients information
+
+
+```javascript
+function getRecipients(page, size, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var page = 73;
+    var size = 73;
+
+    controller.getRecipients(page, size, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_balance"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getBalance") getBalance
+
+> Get balance information for a recipient
+
+
+```javascript
+function getBalance(recipientId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+
+    controller.getBalance(recipientId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_transfer"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.createTransfer") createTransfer
+
+> Creates a transfer for a recipient
+
+
+```javascript
+function createTransfer(recipientId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient Id |
+| request |  ``` Required ```  | Transfer data |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var request = new CreateTransferRequest({"key":"value"});
+
+    controller.createTransfer(recipientId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_transfer"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getTransfer") getTransfer
+
+> Gets a transfer
+
+
+```javascript
+function getTransfer(recipientId, transferId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| transferId |  ``` Required ```  | Transfer id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var transferId = transfer_id;
+
+    controller.getTransfer(recipientId, transferId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_transfers"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getTransfers") getTransfers
+
+> Gets a paginated list of transfers for the recipient
+
+
+```javascript
+function getTransfers(recipientId, page, size, status, createdSince, createdUntil, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| status |  ``` Optional ```  | Filter for transfer status |
+| createdSince |  ``` Optional ```  | Filter for start range of transfer creation date |
+| createdUntil |  ``` Optional ```  | Filter for end range of transfer creation date |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var page = 73;
+    var size = 73;
+    var status = 'status';
+    var createdSince = date("D M d, Y G:i");
+    var createdUntil = date("D M d, Y G:i");
+
+    controller.getTransfers(recipientId, page, size, status, createdSince, createdUntil, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_anticipation"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.createAnticipation") createAnticipation
+
+> Creates an anticipation
+
+
+```javascript
+function createAnticipation(recipientId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Anticipation data |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var request = new CreateAnticipationRequest({"key":"value"});
+
+    controller.createAnticipation(recipientId, request, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_anticipation"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getAnticipation") getAnticipation
+
+> Gets an anticipation
+
+
+```javascript
+function getAnticipation(recipientId, anticipationId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| anticipationId |  ``` Required ```  | Anticipation id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var anticipationId = anticipation_id;
+
+    controller.getAnticipation(recipientId, anticipationId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_anticipation_limits"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getAnticipationLimits") getAnticipationLimits
+
+> Gets the anticipation limits for a recipient
+
+
+```javascript
+function getAnticipationLimits(recipientId, timeframe, paymentDate, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| timeframe |  ``` Required ```  | Timeframe |
+| paymentDate |  ``` Required ```  | Anticipation payment date |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var timeframe = 'timeframe';
+    var paymentDate = date("D M d, Y G:i");
+
+    controller.getAnticipationLimits(recipientId, timeframe, paymentDate, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_anticipations"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.getAnticipations") getAnticipations
+
+> Retrieves a paginated list of anticipations from a recipient
+
+
+```javascript
+function getAnticipations(recipientId, page, size, status, timeframe, paymentDateSince, paymentDateUntil, createdSince, createdUntil, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| page |  ``` Optional ```  | Page number |
+| size |  ``` Optional ```  | Page size |
+| status |  ``` Optional ```  | Filter for anticipation status |
+| timeframe |  ``` Optional ```  | Filter for anticipation timeframe |
+| paymentDateSince |  ``` Optional ```  | Filter for start range for anticipation payment date |
+| paymentDateUntil |  ``` Optional ```  | Filter for end range for anticipation payment date |
+| createdSince |  ``` Optional ```  | Filter for start range for anticipation creation date |
+| createdUntil |  ``` Optional ```  | Filter for end range for anticipation creation date |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var page = 31;
+    var size = 31;
+    var status = 'status';
+    var timeframe = 'timeframe';
+    var paymentDateSince = date("D M d, Y G:i");
+    var paymentDateUntil = date("D M d, Y G:i");
+    var createdSince = date("D M d, Y G:i");
+    var createdUntil = date("D M d, Y G:i");
+
+    controller.getAnticipations(recipientId, page, size, status, timeframe, paymentDateSince, paymentDateUntil, createdSince, createdUntil, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="update_recipient_metadata"></a>![Method: ](https://apidocs.io/img/method.png ".RecipientsController.updateRecipientMetadata") updateRecipientMetadata
+
+> Updates recipient metadata
+
+
+```javascript
+function updateRecipientMetadata(recipientId, request, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| recipientId |  ``` Required ```  | Recipient id |
+| request |  ``` Required ```  | Metadata |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var recipientId = recipient_id;
+    var request = new UpdateMetadataRequest({"key":"value"});
+
+    controller.updateRecipientMetadata(recipientId, request, function(error, response, context) {
 
     
     });
