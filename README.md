@@ -419,8 +419,8 @@ function getCharges(page, size, code, status, paymentMethod, customerId, orderId
 
 ```javascript
 
-    var page = 73;
-    var size = 73;
+    var page = 197;
+    var size = 197;
     var code = 'code';
     var status = 'status';
     var paymentMethod = payment_method;
@@ -857,8 +857,8 @@ function getCustomers(name, document, page, size, email, callback)
 
     var name = 'name';
     var document = 'document';
-    var page = 73;
-    var size = 73;
+    var page = 197;
+    var size = 197;
     var email = 'email';
 
     controller.getCustomers(name, document, page, size, email, function(error, response, context) {
@@ -1020,8 +1020,8 @@ function getAccessTokens(customerId, page, size, callback)
 ```javascript
 
     var customerId = customer_id;
-    var page = 73;
-    var size = 73;
+    var page = 197;
+    var size = 197;
 
     controller.getAccessTokens(customerId, page, size, function(error, response, context) {
 
@@ -1054,8 +1054,8 @@ function getAddresses(customerId, page, size, callback)
 ```javascript
 
     var customerId = customer_id;
-    var page = 73;
-    var size = 73;
+    var page = 197;
+    var size = 197;
 
     controller.getAddresses(customerId, page, size, function(error, response, context) {
 
@@ -1088,8 +1088,8 @@ function getCards(customerId, page, size, callback)
 ```javascript
 
     var customerId = customer_id;
-    var page = 73;
-    var size = 73;
+    var page = 197;
+    var size = 197;
 
     controller.getCards(customerId, page, size, function(error, response, context) {
 
@@ -1232,8 +1232,8 @@ function getInvoices(page, size, code, customerId, subscriptionId, createdSince,
 
 ```javascript
 
-    var page = 73;
-    var size = 73;
+    var page = 197;
+    var size = 197;
     var code = 'code';
     var customerId = customer_id;
     var subscriptionId = subscription_id;
@@ -1244,6 +1244,38 @@ function getInvoices(page, size, code, customerId, subscriptionId, createdSince,
     var dueUntil = date("D M d, Y G:i");
 
     controller.getInvoices(page, size, code, customerId, subscriptionId, createdSince, createdUntil, status, dueSince, dueUntil, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_invoice"></a>![Method: ](https://apidocs.io/img/method.png ".InvoicesController.createInvoice") createInvoice
+
+> Create an Invoice
+
+
+```javascript
+function createInvoice(subscriptionId, cycleId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription Id |
+| cycleId |  ``` Required ```  | Cycle Id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var subscriptionId = subscription_id;
+    var cycleId = cycle_id;
+
+    controller.createInvoice(subscriptionId, cycleId, function(error, response, context) {
 
     
     });
@@ -1573,8 +1605,8 @@ function getPlans(page, size, name, status, billingType, createdSince, createdUn
 
 ```javascript
 
-    var page = 73;
-    var size = 73;
+    var page = 197;
+    var size = 197;
     var name = 'name';
     var status = 'status';
     var billingType = billing_type;
@@ -2044,8 +2076,8 @@ function getUsages(subscriptionId, itemId, page, size, callback)
 
     var subscriptionId = subscription_id;
     var itemId = item_id;
-    var page = 73;
-    var size = 73;
+    var page = 155;
+    var size = 155;
 
     controller.getUsages(subscriptionId, itemId, page, size, function(error, response, context) {
 
@@ -2118,8 +2150,8 @@ function getSubscriptions(page, size, code, billingType, customerId, planId, car
 
 ```javascript
 
-    var page = 73;
-    var size = 73;
+    var page = 155;
+    var size = 155;
     var code = 'code';
     var billingType = billing_type;
     var customerId = customer_id;
@@ -2132,6 +2164,104 @@ function getSubscriptions(page, size, code, billingType, customerId, planId, car
     var createdUntil = date("D M d, Y G:i");
 
     controller.getSubscriptions(page, size, code, billingType, customerId, planId, cardId, status, nextBillingSince, nextBillingUntil, createdSince, createdUntil, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="create_an_usage"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.createAnUsage") createAnUsage
+
+> Create Usage
+
+
+```javascript
+function createAnUsage(subscriptionId, itemId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription id |
+| itemId |  ``` Required ```  | Item id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var subscriptionId = subscription_id;
+    var itemId = item_id;
+
+    controller.createAnUsage(subscriptionId, itemId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_subscription_item"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.getSubscriptionItem") getSubscriptionItem
+
+> Get Subscription Item
+
+
+```javascript
+function getSubscriptionItem(subscriptionId, itemId, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription Id |
+| itemId |  ``` Required ```  | Item id |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var subscriptionId = subscription_id;
+    var itemId = item_id;
+
+    controller.getSubscriptionItem(subscriptionId, itemId, function(error, response, context) {
+
+    
+    });
+```
+
+
+
+### <a name="get_subscription_items"></a>![Method: ](https://apidocs.io/img/method.png ".SubscriptionsController.getSubscriptionItems") getSubscriptionItems
+
+> Get Subscription Itens
+
+
+```javascript
+function getSubscriptionItems(subscriptionId, status, description, callback)
+```
+#### Parameters
+
+| Parameter | Tags | Description |
+|-----------|------|-------------|
+| subscriptionId |  ``` Required ```  | Subscription Id |
+| status |  ``` Required ```  | Status |
+| description |  ``` Required ```  | Description |
+
+
+
+#### Example Usage
+
+```javascript
+
+    var subscriptionId = subscription_id;
+    var status = 'status';
+    var description = 'description';
+
+    controller.getSubscriptionItems(subscriptionId, status, description, function(error, response, context) {
 
     
     });
@@ -2269,8 +2399,8 @@ function getOrders(page, size, code, status, createdSince, createdUntil, custome
 
 ```javascript
 
-    var page = 73;
-    var size = 73;
+    var page = 155;
+    var size = 155;
     var code = 'code';
     var status = 'status';
     var createdSince = date("D M d, Y G:i");
@@ -2522,8 +2652,8 @@ function getRecipients(page, size, callback)
 
 ```javascript
 
-    var page = 73;
-    var size = 73;
+    var page = 155;
+    var size = 155;
 
     controller.getRecipients(page, size, function(error, response, context) {
 
@@ -2653,8 +2783,8 @@ function getTransfers(recipientId, page, size, status, createdSince, createdUnti
 ```javascript
 
     var recipientId = recipient_id;
-    var page = 73;
-    var size = 73;
+    var page = 155;
+    var size = 155;
     var status = 'status';
     var createdSince = date("D M d, Y G:i");
     var createdUntil = date("D M d, Y G:i");
@@ -2794,8 +2924,8 @@ function getAnticipations(recipientId, page, size, status, timeframe, paymentDat
 ```javascript
 
     var recipientId = recipient_id;
-    var page = 31;
-    var size = 31;
+    var page = 155;
+    var size = 155;
     var status = 'status';
     var timeframe = 'timeframe';
     var paymentDateSince = date("D M d, Y G:i");
